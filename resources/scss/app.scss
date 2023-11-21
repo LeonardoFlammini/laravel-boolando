@@ -1,16 +1,20 @@
 @use './partials/vars' as *;
+@import "./partials/general";
+@import "./partials/tipography";
+@import "./partials/utils";
+
 @import '~bootstrap/scss/bootstrap';
 
 
 body{
 
-    footer{
-        text-align: center; //to delete
-        width: 100%;
-        height: 80px;
-        border: 1px solid black ;
-        padding: 10px;
-    }
+    // footer{
+    //     text-align: center; //to delete
+    //     width: 100%;
+    //     height: 80px;
+    //     border: 1px solid black ;
+    //     padding: 10px;
+    // }
     header{
         background-color: var(--red-header);
         color: white;
@@ -29,32 +33,166 @@ body{
             justify-content: space-between;
             align-items: center;
             .logo {
-            flex-basis: 50%;
-            text-align: center;
+                flex-basis: 50%;
+                text-align: center;
             img {
                 width: 150px;
             }
             }
             .categories,
             .icons {
-            flex-basis: 25%;
+                display: flex;
+                align-items: center;
+                flex-basis: 25%;
             }
             .icons {
-            flex-direction: row-reverse;
+                flex-direction: row-reverse;
             }
         }
     }
-    main{
-        min-height: calc(100% - 160px); // 80 px footer e altrettanti header
-        .container{
-            height: 100%;
-            display: flex;
+    main {
+        padding-top: 80px;
+        .container {
+            gap: 10px;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border: 1px solid black ;
+            align-content: start;
+            margin: 40px auto;
         }
-    footer{
+        .card {
+            flex-basis: 30%;
+            max-width: 300px;
+            min-width: 250px;
+            cursor: pointer;
+
+            .std-img,
+            .hover-img {
+                position: relative;
+            }
+            .hover-img {
+                display: none;
+            }
+            .favourite {
+                position: absolute;
+                display: flex;
+                right: 0;
+                top: 10px;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                width: 50px;
+                background-color: white;
+                font-size: 1.2rem;
+                &:hover{
+                    color: $red-discount;
+                }
+                &:hover {
+                .std-img {
+                    display: none;
+                }
+                .hover-img {
+                    display: block;
+                }
+            }
+        }
+        .box{
+            color: white;
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: 50px;
+            display: none;
+            .stb,
+            .dsc {
+                padding: 5px 10px;
+            }
+            .dsc {
+                background-color: var(--red-discount);
+            }
+            .stb {
+                background-color: var(--green);
+            }
+            .details {
+                padding-top: 5px;
+            .description {
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            .brand {
+                font-size: 0.8rem;
+                font-weight: 300;
+            }
+            .price.dsc {
+                color: var(--red-discount);
+                text-decoration: none;
+                &::after{
+                    content: "\20AC";
+                }
+            }
+            .price{
+                padding-left: 5px;
+                text-decoration: line-through;
+                &::after{
+                    content: "\20AC";
+                }
+            }
+            }
+        }
+        .card.dsc{
+            .box {
+            display: block;
+            .stb {
+                display: none;
+            }
+            }
+        }
+        .card.stb{
+            .box {
+            display: block;
+            .dsc {
+                display: none;
+            }
+            }
+        }
+        .card.dsc-stb{
+            .box {
+            display: block;
+            .stb {
+                display: inline-block;
+            }
+            }
+        }
+        }
+        .favourite:hover {
+        color: $red-discount;
+        }
+
+
     }
+
+    footer {
+        background-color: $footer-color;
+        color: white;
+        padding: 30px 0;
+        .container {
+          justify-content: space-between;
+        }
+
+        .company,
+        .cta {
+          font-size: 1.2rem;
+          font-weight: bold;
+          padding-bottom: 10px;
+        }
+        .info{
+          a{
+            font-size: 0.8rem;
+          }
+        }
+        .menu {
+          a{
+            font-size: 1.2rem;
+          }
+        }
+      }
     }
-}
+
