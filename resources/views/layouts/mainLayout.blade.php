@@ -1,4 +1,7 @@
-@include('partials.head')
+@extends('layouts.head')
+@section('title')
+    @yield('title')
+@endsection
 <body>
     @include('partials.header')
     <main>

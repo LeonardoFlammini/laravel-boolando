@@ -1,4 +1,7 @@
 @extends('layouts.mainLayout')
+@section('title')
+    | Home
+@endsection
 
 
 @section('main_content')
