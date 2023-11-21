@@ -1,0 +1,11 @@
+@include('partials.head')
+<body>
+    @include('partials.header')
+    <main>
+        <div class="container">
+            @yield('main_content')
+        </div>
+    @include('partials.footer')
+    </main>
+</body>
+</html>
